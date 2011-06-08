@@ -1,7 +1,0 @@
-public class Resume {
-    public static void main(String args[]) {
-	System.out.println("2281 - A Santiago        |  6595578");
-	System.out.println("corner Sanchez Streets   |  09166889281");
-	System.out.println("Baclaran, Paranaque City |  jscrisostomo@feu-eac.edu.ph");
-    }
-}
