@@ -20,5 +20,32 @@ public class Resume {
 	System.out.println("                             Bachelor of Arts in Information Technology with specialization");
 	System.out.println("                                in Web Applications Development");
 	System.out.println("                             Undergraduate\n");
+	System.out.println("Organizations : \n");
+	System.out.println("    - Member, FEU - East Asia College Student Chapter of ACM, 2010.");
+	System.out.println("    - Member, UST Literary Society, 2011.\n");
+	System.out.println("Personal Information : \n");
+	System.out.println("    Was born on May 3, 1988 on Malolos, Bulacan. parents are separated and is currently");
+	System.out.println(" living with his mother, Ma. Helena S. Crisostomo who is working as a Bank Office at the");
+	System.out.println(" Philippine National Bank.\n");
+	System.out.println("Awards Received : \n");
+	System.out.println("   1st Place - Eye Buggin' Programming Competition");
+	System.out.println("      C Programming Language Category");
+	System.out.println("      FEU - East Asia College");
+	System.out.println("      November 5, 2010\n");
+	System.out.println("Trainings and Seminars Attended : \n");
+	System.out.println("   Core Ruby Programming Language, Batch 23");
+	System.out.println("      RubyLearning.org");
+	System.out.println("      http://rubylearning.org");
+	System.out.println("      April 16 - June 3, 2011\n");
+	System.out.println("Character References : ");
+	System.out.println("   Reginald Cheng");
+	System.out.println("   MIS Director / Instructor");
+	System.out.println("   FEU - East Asia College\n");
+	System.out.println("   Janice Abellana");
+	System.out.println("   Instructor");
+	System.out.println("   FEU - East Asia College\n");
+	System.out.println("   Lorna Estabillo");
+       	System.out.println("   Instructor");
+	System.out.println("   FEU - East Asia College\n");
     }
 }
