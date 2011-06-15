@@ -1,3 +1,9 @@
+/*
+ * Created by Crisostomo, John Dominic S. (2007-10993)
+ *  on June 15, 2011, 11:05am
+ * E-mail: jscrisostomo@feu-eac.edu.ph
+ */
+
 import java.io.*;
 
 public class Denomination {
