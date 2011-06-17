@@ -16,18 +16,18 @@ public class GradesComputation {
     public static void main(String args[]) throws Exception {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	DecimalFormat formatter = new DecimalFormat("00.00");
-	float sq, lq, r, te, me;
-	float cs, mg;
+	double sq, lq, r, te, me;
+	double cs, mg;
 	System.out.print("Enter grade for Short Quiz : ");
-	sq = Float.parseFloat(br.readLine());
+	sq = Double.parseDouble(br.readLine());
 	System.out.print("Enter grade for Long Quiz : ");
-	lq = Float.parseFloat(br.readLine());
+	lq = Double.parseDouble(br.readLine());
 	System.out.print("Enter grade for Recitation : ");
-	r = Float.parseFloat(br.readLine());
+	r = Double.parseDouble(br.readLine());
 	System.out.print("Enter grade for Teacher's Evaluation : ");
-	te = Float.parseFloat(br.readLine());
+	te = Double.parseDouble(br.readLine());
 	System.out.print("Enter grade for Midterm Exam : " );
-	me = Float.parseFloat(br.readLine());
+	me = Double.parseDouble(br.readLine());
 	
 	cs = (lq * .40) + (sq * .30) + (r * .25) + (te * .05);
 	mg = (cs * .60) + (me * .40);
