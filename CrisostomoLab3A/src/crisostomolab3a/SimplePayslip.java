@@ -25,13 +25,13 @@ public class SimplePayslip {
         int number;
         String name;
         double salary;
-        double ot;
-        double witholding_tax;
+        int ot;
+        double witholding_tax = 0;
         double sss = 500.00;
         double pag_ibig = 200.00;
         double philhealth = 100.00;
         double deductions = sss + pag_ibig + philhealth;
-        String position;
+        String position = "Employer";
         
         // prompts and inputs
         System.out.println("Employee Payslip");
@@ -42,7 +42,7 @@ public class SimplePayslip {
         System.out.print("Enter Employee's Basic Salary : ");
         salary = Double.parseDouble(input.readLine());
         System.out.print("Enter Employee's OT Hours : ");
-        ot = Double.parseDouble(input.readLine()); 
+        ot = Integer.parseInt(input.readLine()); 
         
         //computation and variable declaration for computation
         double ot_pay = (salary * .01) * ot;
@@ -88,7 +88,22 @@ public class SimplePayslip {
                 position ="Manager Paygrade B";
             }
         }
-
+        
+        double net_pay = gross_pay - (deductions + witholding_tax);
+        
         // prints payslip
+        System.out.println(today);
+        System.out.println("Employee Number : " + number);
+        System.out.println("Name : " + name);
+        System.out.println("Basic Salary : " + formatter.format(salary));
+        System.out.println("Position and Pay Grade : " + position);
+        System.out.println("Number of OT Hours : " + ot);
+        System.out.println("Gross Pay : P" + formatter.format(gross_pay));
+        System.out.println("Deductions : ");
+        System.out.println("    Witholding Tax : P" + witholding_tax);
+        System.out.println("    SSS : P" + sss);
+        System.out.println("    Pag-Ibig : P" + pag_ibig);
+        System.out.println("    Philhealth : P" + philhealth);
+        System.out.println("Net Pay : P" + net_pay);
     }
 }
