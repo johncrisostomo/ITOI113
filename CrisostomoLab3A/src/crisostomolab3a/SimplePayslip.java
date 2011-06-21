@@ -18,7 +18,7 @@ public class SimplePayslip {
      */
     public static void main(String[] args) throws Exception {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        DecimalFormat formatter = new DecimalFormat("##,##0.00");
+        DecimalFormat formatter = new DecimalFormat("##,#00.00");
         Date today = new Date();
         
         // variable declaration
@@ -34,6 +34,7 @@ public class SimplePayslip {
         String position = "Employer";
         
         // prompts and inputs
+        System.out.println();
         System.out.println("Employee Payslip");
         System.out.print("Enter Employee Number : ");
         number = Integer.parseInt(input.readLine());
@@ -98,12 +99,13 @@ public class SimplePayslip {
         System.out.println("Basic Salary : " + formatter.format(salary));
         System.out.println("Position and Pay Grade : " + position);
         System.out.println("Number of OT Hours : " + ot);
+        System.out.println();
         System.out.println("Gross Pay : P" + formatter.format(gross_pay));
         System.out.println("Deductions : ");
-        System.out.println("    Witholding Tax : P" + witholding_tax);
-        System.out.println("    SSS : P" + sss);
-        System.out.println("    Pag-Ibig : P" + pag_ibig);
-        System.out.println("    Philhealth : P" + philhealth);
-        System.out.println("Net Pay : P" + net_pay);
+        System.out.println("    Witholding Tax : P" + formatter.format(witholding_tax));
+        System.out.println("    SSS            : P" + formatter.format(sss));
+        System.out.println("    Pag-Ibig       : P" + formatter.format(pag_ibig));
+        System.out.println("    Philhealth     : P" + formatter.format(philhealth));
+        System.out.println("Net Pay : P" + formatter.format(net_pay));
     }
 }
