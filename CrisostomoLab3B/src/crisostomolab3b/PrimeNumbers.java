@@ -75,7 +75,6 @@ public class PrimeNumbers {
 	    default: System.out.println("Invalid input!");
 	    }
 
-	    ask:
 	    System.out.print("Would you like to try another?");
 	    answer = (char) System.in.read();
 	    System.in.read();
