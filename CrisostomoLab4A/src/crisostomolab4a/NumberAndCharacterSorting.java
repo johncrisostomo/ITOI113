@@ -19,31 +19,36 @@ public class NumberAndCharacterSorting {
 	String uinput;
 	int i, j;
 	char tmp;
+        char choice = 'y';
 
+        do {
+            System.out.print("Enter input : ");
+            uinput = input.readLine();
 
-	System.out.print("Enter input : ");
-	uinput = input.readLine();
+            char inputchar[] = new char[uinput.length()];
 
-	char inputchar[] = new char[uinput.length()];
+            for(int x = 0; x < uinput.length(); x++) {
+                inputchar[x] = uinput.charAt(x);
+            }
 
-	for(int x = 0; x < uinput.length(); x++) {
-	    inputchar[x] = uinput.charAt(x);
-	}
-
-	for(i = 0; i < uinput.length()-1; i++) {
-	    for(j = i+1;j < uinput.length(); j++) {
-		if(inputchar[j] < inputchar[j-1]) {
-			tmp = inputchar[j];
+            for(i = 0; i < uinput.length()-1; i++) {
+                for(j = i+1;j < uinput.length(); j++) {
+                    if(inputchar[j] < inputchar[j-1]) {
+                    	tmp = inputchar[j];
 			inputchar[j] = inputchar[j-1];
 			inputchar[j-1] =tmp;
-		}
-	    }
-	}
+                    }
+                }
+            }
 
-	for(int x = uinput.length()-1; x >= 0; x--){
-	    System.out.print(inputchar[x]);
-	}
-	System.out.println();
+            for(int x = uinput.length()-1; x >= 0; x--){
+                System.out.print(inputchar[x]);
+            }
+            System.out.println();
+
+            System.out.print("Would you like to enter another (y/n) ?");
+            choice = (char) System.in.read();
+            System.in.read();
+        }while(choice == 'y');
     }
-
 }
