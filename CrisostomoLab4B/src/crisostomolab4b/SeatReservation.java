@@ -28,9 +28,9 @@ public class SeatReservation {
 	    for(int i = 0; i < 7; i ++) {
 		for(int j = 0; j < 5; j++) {
 		    if(seats[i][j] > 0 )
-			System.out.print(seats[i][j] + "\t");
+			System.out.printf("%5d", seats[i][j]);
 		    else
-			System.out.print("x\t");
+			System.out.printf("%5c", 'x');
 		}
 		System.out.println();
 	    }
