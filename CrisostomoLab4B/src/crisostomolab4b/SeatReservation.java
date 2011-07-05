@@ -18,7 +18,7 @@ public class SeatReservation {
     public static void main(String[] args) throws Exception {
         	BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	int rseat, hit;
-	char choice = 'y';
+	int counter = 1;
 	int seats[][] = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10}, { 11, 12, 13, 14, 15 }, { 16, 17, 18, 19, 20 },
 			  { 21, 22, 23, 24, 25 }, { 26, 27, 28, 29, 30 }, { 31, 32, 33, 34, 35 } };
 
@@ -46,15 +46,19 @@ public class SeatReservation {
 		    }
 		}
 	    }
-	    if(hit > 0)
+	    if(hit > 0) {
 		System.out.println("Seat reservation for Seat #" + rseat + " successful!");
-	    else
-		System.out.println("Sorry, that seat seems to be already reserved.");
+                counter++;
+            } else
+		System.out.println("Sorry, that seat seems to be reserved.");
 
-	    System.out.print("Would you like to have another reservation? (y/n)");
-	    choice = (char) System.in.read();
-	    System.in.read();
-	}while(choice == 'y');
+	    //System.out.print("Would you like to have another reservation? (y/n)");
+	    //choice = (char) System.in.read();
+	    //System.in.read();
+            
+	}while(counter != 35);
+        System.out.println();
+        System.out.println("All seats are reserved!");
     }
 
 }
