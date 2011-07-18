@@ -46,6 +46,15 @@ public class Cage {
     }
     
     public void cleaned() {
-        System.out.println("This is inside the object " + this.name + " 's"  +" method cleaned.");
+        System.out.println("This is inside the object's"  +" method cleaned()");
+    }
+
+    public boolean isCleaned() {
+        return clean;
+    }
+
+    public boolean isCovered() {
+        return covered;
     }
 }
+
