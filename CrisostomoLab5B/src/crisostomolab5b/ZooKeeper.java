@@ -3,52 +3,88 @@
  * and open the template in the editor.
  */
 
-package crisostomolab5a;
+package crisostomolab5b;
 
 /**
  *
- * @author jsc10993
+ * @author arscariosus
  */
 public class ZooKeeper {
+    //attributes
     private String name;
     private String title;
     private double payRate;
     private boolean degree;
-
-    public ZooKeeper() {
-        this.payRate = 14;
+    ZooAnimal zA = new ZooAnimal();
+    //constructor
+    public ZooKeeper()
+    {
+        this.name = "";
+        this.title = "";
+        this.payRate = 14.0;
+        this.degree = true;
     }
 
-    public void setName(String name) {
+        public ZooKeeper(String name, String title, double payRate, boolean degree)
+    {
         this.name = name;
-    }
-
-    public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setPayRate(double payRate) {
         this.payRate = payRate;
-    }
-
-    public void setDegree(boolean degree) {
         this.degree = degree;
     }
 
-    public String getName() {
-        return name;
+    //setters
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    public void setTitle(String type)
+    {
+        this.title = type;
+    }
+    public void setPayRate(double payRate)
+    {
+        this.payRate = payRate;
     }
 
-    public String getTitle() {
-        return title;
+    public void setDegree(boolean degree)
+    {
+        this.degree = degree;
     }
 
-    public double getPayRate() {
-        return payRate;
+    //getters
+    public String getName()
+    {
+        return this.name;
     }
 
-    public boolean hasDegree() {
-        return degree;
+    public String getTitle()
+    {
+        return this.title;
     }
+
+    public double getPayRate()
+    {
+        return this.payRate;
+    }
+
+    public boolean hasDegree()
+    {
+        return this.degree;
+    }
+
+    public void feedAnimal()
+    {
+
+        System.out.println("The Zoo Keeper is Feeding the Animal..");
+    }
+
+    public void cleanCage()
+    {
+        System.out.println("The Zoo Keeper is Cleanning the Cage...");
+    }
+
 
 }
+

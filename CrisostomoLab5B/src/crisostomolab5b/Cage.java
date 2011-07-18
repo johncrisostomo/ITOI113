@@ -3,58 +3,93 @@
  * and open the template in the editor.
  */
 
-package crisostomolab5a;
+package crisostomolab5b;
 
 /**
  *
- * @author jsc10993
+ * @author joanel
  */
 public class Cage {
+    //attributes
     private int length;
     private int width;
     private int height;
     private boolean clean;
     private boolean covered;
 
-    public Cage() {
-        this.clean = false;
+    //constructor
+    public Cage()
+    {
         this.length = 10;
         this.width = 10;
         this.height = 10;
+        this.clean = false;
+        this.covered = true;
+    }
+    public Cage(int length,int width,int height,boolean clean,boolean covered)
+    {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.clean = clean;
+        this.covered = covered;
     }
 
-    public void setLength(int length) {
+
+    //setters
+
+    public void setLength(int length)
+    {
         this.length = length;
     }
-    public void setWidth(int width) {
+
+    public void setWidth(int width)
+    {
         this.width = width;
     }
-    public void setHeight(int height) {
+
+    public void setHeight(int height)
+    {
         this.height = height;
     }
 
-    public int getLength() {
-        return length;
+    //getters
+    public int getLength()
+    {
+        return this.length = length;
     }
 
-    public int getWidth() {
-        return width;
+    public int getWidth()
+    {
+        return this.width = width;
     }
 
-    public int getHeight() {
-        return height;
-    }
-    
-    public void cleaned() {
-        System.out.println("This is inside the object's"  +" method cleaned()");
+    public int getHeight()
+    {
+        return this.height = height;
     }
 
-    public boolean isCleaned() {
-        return clean;
+    public void cleaned()
+    {
+        if(isClean() == true)
+        {
+            System.out.println("it is Cleaned!");
+        }
+        else if(isClean() == false)
+        {
+            System.out.println("Cage is Dirty!");
+        }
     }
 
-    public boolean isCovered() {
-        return covered;
+    public boolean isClean()
+    {
+        return this.clean;
     }
+
+    public boolean isCovered()
+    {
+        return this.covered;
+    }
+
 }
 
