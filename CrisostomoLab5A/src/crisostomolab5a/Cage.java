@@ -49,7 +49,7 @@ public class Cage {
         System.out.println("This is inside the object's"  +" method cleaned()");
     }
 
-    public boolean isCleaned() {
+    public boolean isClean() {
         return clean;
     }
 

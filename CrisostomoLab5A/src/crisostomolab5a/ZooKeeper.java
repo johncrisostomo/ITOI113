@@ -43,6 +43,10 @@ public class ZooKeeper {
         return title;
     }
 
+    public double getPayRate() {
+        return payRate;
+    }
+
     public boolean hasDegree() {
         return degree;
     }
