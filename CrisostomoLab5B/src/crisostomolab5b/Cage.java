@@ -7,7 +7,7 @@ package crisostomolab5b;
 
 /**
  *
- * @author joanel
+ * @author arscariosus
  */
 public class Cage {
     //attributes
@@ -56,17 +56,17 @@ public class Cage {
     //getters
     public int getLength()
     {
-        return this.length = length;
+        return length;
     }
 
     public int getWidth()
     {
-        return this.width = width;
+        return width;
     }
 
     public int getHeight()
     {
-        return this.height = height;
+        return height;
     }
 
     public void cleaned()
@@ -83,12 +83,12 @@ public class Cage {
 
     public boolean isClean()
     {
-        return this.clean;
+        return clean;
     }
 
     public boolean isCovered()
     {
-        return this.covered;
+        return covered;
     }
 
 }

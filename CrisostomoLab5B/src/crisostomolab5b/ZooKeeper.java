@@ -56,22 +56,22 @@ public class ZooKeeper {
     //getters
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public String getTitle()
     {
-        return this.title;
+        return title;
     }
 
     public double getPayRate()
     {
-        return this.payRate;
+        return payRate;
     }
 
     public boolean hasDegree()
     {
-        return this.degree;
+        return degree;
     }
 
     public void feedAnimal()
@@ -84,7 +84,5 @@ public class ZooKeeper {
     {
         System.out.println("The Zoo Keeper is Cleanning the Cage...");
     }
-
-
 }
 

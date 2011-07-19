@@ -28,13 +28,10 @@ public class JavaZoo {
         ZooAnimal myFirstAnimal = new ZooAnimal();
         Cage firstCage = new Cage();
         ZooKeeper myFirstZooKeeper = new ZooKeeper();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String user = null;
-
-
-        myFirstAnimal.setName("Rudolf");
-        myFirstAnimal.setType("Reindeer");
-        myFirstZooKeeper.setName("John Doe");
+        
+        myFirstAnimal.setName("Hershey");
+        myFirstAnimal.setType("Wild Dog");
+        myFirstZooKeeper.setName("John Crisostomo");
         myFirstZooKeeper.setTitle("Engr.John");
 
 
@@ -58,8 +55,8 @@ public class JavaZoo {
 
         //Cage Output
         System.out.println();
-        System.out.println(myFirstAnimal.getName() + "'s habitat is a cage with" );
-        System.out.print("A Length of " + firstCage.getLength());
+        System.out.print(myFirstAnimal.getName() + "'s habitat is a cage with ");
+        System.out.print("a Length of " + firstCage.getLength());
         System.out.print(", a Width of " + firstCage.getWidth());
         System.out.println(" and a Height : " + firstCage.getHeight());
         System.out.print("As we can see " + myFirstAnimal.getName() + "'s ");
@@ -68,8 +65,8 @@ public class JavaZoo {
         System.out.println("but is the Cage Covered? --> " + firstCage.isCovered());
 
         //Second Animal, using the other constructor
-        ZooAnimal mySecondAnimal = new ZooAnimal("Chip","Brown Monkey",5,false);
-        ZooKeeper mySecondZooKeeper = new ZooKeeper("Jackson Rock", "Mr. Jackson Rock", 15.0, false);
+        ZooAnimal mySecondAnimal = new ZooAnimal("Kangaskhan","Kangaroo",5,false);
+        ZooKeeper mySecondZooKeeper = new ZooKeeper("Pepe Smith", "Mr. Rock n Roll", 15.0, false);
         Cage secondCage = new Cage(15,20,15,false,true);
 
         System.out.println("Everyone! Look! " + myFirstAnimal.getName() + " is eating");

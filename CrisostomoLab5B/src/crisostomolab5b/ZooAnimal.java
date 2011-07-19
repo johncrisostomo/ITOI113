@@ -89,7 +89,7 @@ public class ZooAnimal {
     public void sleep()
     {
         System.out.println(getName() + " is Sleeping!");
-        System.out.println(getName() + ": ZZZZZZ~");
+        System.out.println(getName() + ": Zzzzz...");
         this.hungry = true;
     }
 
