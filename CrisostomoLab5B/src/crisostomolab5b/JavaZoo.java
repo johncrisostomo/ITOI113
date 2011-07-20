@@ -9,7 +9,7 @@ package crisostomolab5b;
  *
  * @author arscariosus
  */
-import java.io.*;
+
 public class JavaZoo {
 
     public static String zooName = "Java Park n Zoo";
