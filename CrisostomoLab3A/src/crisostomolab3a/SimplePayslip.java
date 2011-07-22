@@ -49,7 +49,7 @@ public class SimplePayslip {
         double ot_pay = (salary * .01) * ot;
         double gross_pay = salary + ot_pay;
         
-        if((int)salary >= 8000 && (int)salary <= 10000) {
+        if((int)salary >= 8000 && (int)salary < 12000) {
             witholding_tax = gross_pay * .10;
             if((int)salary < 10000) {
                 position ="Technician Paygrade A";
@@ -57,7 +57,7 @@ public class SimplePayslip {
                 position ="Technician Paygrade B";
             }
         }
-        if((int)salary >= 12000 && (int)salary <= 15000) {
+        if((int)salary >= 12000 && (int)salary < 18000) {
             witholding_tax = gross_pay * .12;
             if((int)salary < 15000) {
                 position ="Encoder Paygrade A";
@@ -65,7 +65,7 @@ public class SimplePayslip {
                 position ="Encoder Paygrade B";
             }
         }
-        if((int)salary >= 18000 && (int)salary <= 20000) {
+        if((int)salary >= 18000 && (int)salary <= 25000) {
             witholding_tax = gross_pay * .15;
             if((int)salary < 20000) {
                 position ="Programmer Paygrade A";
@@ -73,7 +73,7 @@ public class SimplePayslip {
                 position ="Programmer Paygrade B";
             }
         }
-        if((int)salary >= 25000 && (int)salary <= 30000) {
+        if((int)salary >= 25000 && (int)salary < 40000) {
             witholding_tax = gross_pay * .18;
             if((int)salary < 30000) {
                 position ="System Analyst Paygrade A";
