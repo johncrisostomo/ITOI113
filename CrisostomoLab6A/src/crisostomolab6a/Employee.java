@@ -13,7 +13,6 @@ import java.text.DecimalFormat;
  * @author arscariosus
  */
 public class Employee {
-
     /**
      * @param args the command line arguments
      */
@@ -27,12 +26,11 @@ public class Employee {
         String name;
         double salary;
         int ot;
-        double witholding_tax = 0;
         double sss = 500.00;
         double pag_ibig = 200.00;
         double philhealth = 100.00;
         double misc = sss + pag_ibig + philhealth;
-        String position;
+        
 
 
         System.out.println();
