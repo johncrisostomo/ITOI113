@@ -35,31 +35,53 @@ public class Client {
         annualIncome = Double.parseDouble(input.readLine());
 
         if(annualIncome>=299999 && annualIncome <= 200000)
-            ca.setCreditBalance(30000);
+            ca.setCreditLimit(30000);
         else if(annualIncome == 300000)
-            ca.setCreditBalance(50000);
+            ca.setCreditLimit(50000);
         else
-            ca.setCreditBalance(100000);
+            ca.setCreditLimit(100000);
 
         ca.setCreditAcctNo((int) (Math.random() * 9999) + 1000);
+
+        //display new account information
+        System.out.println("Congratulations, your account has been created!");
+        System.out.println("Account Number : " + ca.getCreditAcctNo());
+        System.out.println("Credit Limit : " + ca.getCreditLimit());
     }
 
     public static void main(String[] args) throws Exception {
         boolean accountExist = false;
 
         for(int choice = displayMenu(); choice != 6; choice = displayMenu()){
-            switch(choice) {
-                case 1: Credit ca = new Credit();
+            if(accountExist == false) {
+                switch(choice) {
+                    case 1: Credit ca = new Credit();
+                            createNewCreditAcct(ca);
+                            accountExist = true;
+                            break;
 
-                        accountExist = true;
-                        break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: System.out.println("Goodbye!");
-                        break;
-                default: System.out.println("Invalid input. Please try again."); break;
+                    case 6: break;
+                                                 
+                    default: System.out.println("You have to create an account first!");
+                }
+            } else {
+                switch(choice) {
+                    case 1: System.out.println("You already have an account!");
+                            break;
+                            
+                    case 2:
+                            break;
+
+                    case 3: break;
+
+                    case 4: break;
+
+                    case 5: break;
+
+                    case 6: break;
+                        
+                    default: System.out.println("Invalid input. Please try again."); break;
+                }
             }
         }
     }
