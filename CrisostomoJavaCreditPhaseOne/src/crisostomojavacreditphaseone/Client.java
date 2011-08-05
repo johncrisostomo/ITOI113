@@ -5,6 +5,7 @@
 
 package crisostomojavacreditphaseone;
 import java.io.*;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -27,37 +28,44 @@ public class Client {
         return Integer.parseInt(choice.readLine());
     }
 
-    public static void createNewCreditAcct(Credit ca) throws Exception {
+    public static boolean createNewCreditAcct(Credit ca) throws Exception {
+        DecimalFormat formatter = new DecimalFormat("##,##0.00");
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         double annualIncome;
 
         System.out.print("Please enter annual income : ");
         annualIncome = Double.parseDouble(input.readLine());
 
-        if(annualIncome>=299999 && annualIncome <= 200000)
+        if(annualIncome<=299999 && annualIncome >= 200000)
             ca.setCreditLimit(30000);
         else if(annualIncome == 300000)
             ca.setCreditLimit(50000);
-        else
+        else if(annualIncome > 300000)
             ca.setCreditLimit(100000);
-
+        else {
+            System.out.println("Annual income is either too high or too low.");
+            return false;
+        }
         ca.setCreditAcctNo((int) (Math.random() * 9999) + 1000);
 
         //display new account information
         System.out.println("Congratulations, your account has been created!");
         System.out.println("Account Number : " + ca.getCreditAcctNo());
-        System.out.println("Credit Limit : " + ca.getCreditLimit());
+        System.out.println("Credit Limit : " + formatter.format(ca.getCreditLimit()));
+        return true;
     }
 
     public static void main(String[] args) throws Exception {
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        Credit ca = new Credit();
         boolean accountExist = false;
 
         for(int choice = displayMenu(); choice != 6; choice = displayMenu()){
             if(accountExist == false) {
                 switch(choice) {
-                    case 1: Credit ca = new Credit();
-                            createNewCreditAcct(ca);
-                            accountExist = true;
+                    case 1: 
+                            if(createNewCreditAcct(ca))
+                                accountExist = true;
                             break;
 
                     case 6: break;
@@ -70,13 +78,42 @@ public class Client {
                             break;
                             
                     case 2:
+                            System.out.print("Enter your account number : ");
+                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                ca.creditInquiry();
+                            } else {
+                                System.out.println("Invalid or incorrect account number. Please try again.");
+                            }
                             break;
 
-                    case 3: break;
+                    case 3: System.out.print("Enter your account number : ");
+                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                System.out.print("Please enter the amount : ");
+                                ca.purchase(Double.parseDouble(input.readLine()));
+                            } else {
+                                System.out.println("Invalid or incorrect account number. Please try again.");
+                            }
+                            break;
 
-                    case 4: break;
+                    case 4: System.out.print("Enter your account number : ");
+                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                
+                            } else {
+                                System.out.println("Invalid or incorrect account number. Please try again.");
+                            }
+                            break;
 
-                    case 5: break;
+                    case 5: System.out.print("Enter your account number : ");
+                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                ca.setCreditAcctNo(0);
+                                ca.setCreditBalance(0);
+                                ca.setCreditLimit(0);
+                                accountExist = false;
+                                System.out.println("Account has been successfully terminated.");
+                            } else {
+                                System.out.println("Invalid or incorrect account number. Please try again.");
+                            }
+                            break;
 
                     case 6: break;
                         
