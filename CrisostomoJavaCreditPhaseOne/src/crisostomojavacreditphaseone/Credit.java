@@ -5,6 +5,7 @@
 
 package crisostomojavacreditphaseone;
 import java.text.DecimalFormat;
+import java.util.Date;
 /**
  *
  * @author arscariosus
@@ -13,10 +14,6 @@ public class Credit {
     private int creditAcctNo;
     private double creditBalance;
     private double creditLimit;
-
-    public Credit() {
-
-    }
 
     /**
      * @return the creditAcctNo
@@ -61,10 +58,13 @@ public class Credit {
     }
 
     public void purchase(double amt) {
-        if(amt > 1 && amt <= creditLimit) {
+        if(amt > 1 && amt <= creditLimit && creditLimit >= (((creditBalance + amt) * .03) + amt)) {
             if(creditBalance < creditLimit) {
-                double interest = amt * .03;
-                creditBalance += (amt + interest);
+                //double interest = (creditBalance + amt) * .03;
+                creditBalance+=amt;
+                double interest = creditBalance*.03;
+                creditBalance+=interest;
+                //creditBalance += (amt + interest);
                 System.out.println("Successfully purchased item!");
             } else {
                 System.out.println("You have exceeded your credit limit!");
@@ -85,9 +85,12 @@ public class Credit {
 
     public void creditInquiry() {
         DecimalFormat formatter = new DecimalFormat("##,##0.00");
+        Date today = new Date();
+        System.out.println(today);
         System.out.println("\tCredit Inquiry");
-        System.out.println("Credit Limit : " + formatter.format(creditLimit));
+        System.out.println("Credit Limit : " + formatter.format(creditLimit - creditBalance));
         System.out.println("Credit Balance : " + formatter.format(creditBalance));
+        //System.out.println("Remaining Credits : " + formatter.format(creditLimit - creditBalance));
     }
     public boolean validateCreditAccount(int acctNo) {
         if(creditAcctNo == acctNo) {
