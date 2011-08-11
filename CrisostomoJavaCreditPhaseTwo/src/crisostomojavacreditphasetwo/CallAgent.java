@@ -22,48 +22,60 @@ public class CallAgent {
         System.out.println("\t[2] Credit Inquiry");
         System.out.println("\t[3] Purchases");
         System.out.println("\t[4] Payment");
-        System.out.println("\t[5] Close Credit Account");
-        System.out.println("\t[6] Exit");
+        System.out.println("\t[5] Client Profile");
+        System.out.println("\t[6] Close Credit Account");
+        System.out.println("\t[7] Exit");
         System.out.print("\nPlease enter your choice : ");
         return Integer.parseInt(choice.readLine());
     }
 
-    public static boolean createNewCreditAcct(Credit ca) throws Exception {
+    public static boolean createAcct(Client cl) throws Exception {
         DecimalFormat formatter = new DecimalFormat("##,##0.00");
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         double annualIncome;
 
+        TravelCredit tc = new TravelCredit();
+        cl.setTc(tc);
+
+        System.out.print("Please enter your name : ");
+        cl.setName(input.readLine());
+        System.out.print("Please enter your address : ");
+        cl.setAddress(input.readLine());
+        System.out.print("Please enter your birthday : ");
+        cl.setBday(input.readLine());
+        System.out.print("Please enter your contact : ");
+        cl.setContact(Integer.parseInt(input.readLine()));
         System.out.print("Please enter annual income : ");
         annualIncome = Double.parseDouble(input.readLine());
 
         if(annualIncome < 300000 && annualIncome >= 200000)
-            ca.setCreditLimit(30000);
+            cl.getTc().setCreditLimit(30000);
         else if(annualIncome >= 300000 && annualIncome <= 500000)
-            ca.setCreditLimit(50000);
+            cl.getTc().setCreditLimit(50000);
         else if(annualIncome > 500000)
-            ca.setCreditLimit(100000);
+            cl.getTc().setCreditLimit(100000);
         else {
             System.out.println("Annual income is too low.");
             return false;
         }
-        ca.setCreditAcctNo((int) (Math.random() * 9999) + 1000);
+        cl.getTc().setCreditAcctNo((int) (Math.random() * 9999) + 1000);
 
         //display new account information
         System.out.println("Congratulations, your account has been created!");
-        System.out.println("Account Number : " + ca.getCreditAcctNo());
-        System.out.println("Credit Limit : " + formatter.format(ca.getCreditLimit()));
+        System.out.println("Account Number : " + cl.getTc().getCreditAcctNo());
+        System.out.println("Credit Limit : " + formatter.format(cl.getTc().getCreditLimit()));
         return true;
     }
     public static void main(String[] args) throws Exception {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        Credit ca = new Credit();
+        Client cl = new Client();
         boolean accountExist = false;
 
         for(int choice = displayMenu(); choice != 6; choice = displayMenu()){
             if(accountExist == false) {
                 switch(choice) {
                     case 1:
-                            if(createNewCreditAcct(ca))
+                            if(createAcct(cl))
                                 accountExist = true;
                             break;
 
@@ -78,39 +90,47 @@ public class CallAgent {
 
                     case 2:
                             System.out.print("Enter your account number : ");
-                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
-                                ca.creditInquiry();
+                            if(cl.getTc().validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                cl.getTc().creditInquiry();
                             } else {
                                 System.out.println("Invalid or incorrect account number. Please try again.");
                             }
                             break;
 
                     case 3: System.out.print("Enter your account number : ");
-                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                            if(cl.getTc().validateCreditAccount(Integer.parseInt(input.readLine()))) {
                                 System.out.print("Please enter the amount : ");
-                                ca.purchase(Double.parseDouble(input.readLine()));
+                                cl.getTc().purchase(Double.parseDouble(input.readLine()));
                             } else {
                                 System.out.println("Invalid or incorrect account number. Please try again.");
                             }
                             break;
 
                     case 4: System.out.print("Enter your account number : ");
-                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                            if(cl.getTc().validateCreditAccount(Integer.parseInt(input.readLine()))) {
                                 System.out.print("Please enter the amount : ");
-                                ca.payBalance(Double.parseDouble(input.readLine()));
+                                cl.getTc().payBalance(Double.parseDouble(input.readLine()));
                             } else {
                                 System.out.println("Invalid or incorrect account number. Please try again.");
                             }
                             break;
 
                     case 5: System.out.print("Enter your account number : ");
-                            if(ca.validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                            if(cl.getTc().validateCreditAccount(Integer.parseInt(input.readLine()))) {
+                                System.out.println(cl);
+                            } else {
+                                System.out.println("Invalid or incorrect account number. Please try again.");
+                            }
+                            break;
+
+                    case 6: System.out.print("Enter your account number : ");
+                            if(cl.getTc().validateCreditAccount(Integer.parseInt(input.readLine()))) {
                                 System.out.print("Are you sure you want to delete your account (yes/no) ? ");
                                 String str = input.readLine();
                                 if(str.equals("yes")) {
-                                    ca.setCreditAcctNo(0);
-                                    ca.setCreditBalance(0);
-                                    ca.setCreditLimit(0);
+                                    cl.getTc().setCreditAcctNo(0);
+                                    cl.getTc().setCreditBalance(0);
+                                    cl.getTc().setCreditLimit(0);
                                     accountExist = false;
                                     System.out.println("Account has been successfully terminated.");
                                  } else {
@@ -122,8 +142,8 @@ public class CallAgent {
                         }
 
 
-                    case 6: break;
-
+                    
+                    case 7: break;
                     default: System.out.println("Invalid input. Please try again."); break;
                 }
             }

@@ -4,11 +4,13 @@
  */
 
 package crisostomojavacreditphasetwo;
+import java.text.DecimalFormat;
 
 /**
  *
  * @author arscariosus
  */
+
 public class Client {
     private String name;
     private String address;
@@ -95,7 +97,12 @@ public class Client {
     }
 
     public String toString() {
-        return "Name : " + this.getName() + "\n";
+        DecimalFormat formatter = new DecimalFormat("##,##0.00");
+        return  "Name            : " + this.getName() + "\n" +
+                "Address         : " + this.getAddress() + "\n" +
+                "Birthday        : " + this.getBday() + "\n" +
+                "Contact Number  : " + this.getContact() + "\n" +
+                "Current Balance : " + formatter.format(tc.getCreditBalance()) + "\n";
     }
 }
 
