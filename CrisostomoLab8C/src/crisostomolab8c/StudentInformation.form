@@ -55,7 +55,6 @@
           <Color blue="72" green="95" red="9d" type="rgb"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Student Info"/>
-        <Property name="name" type="java.lang.String" value="null" noResource="true"/>
       </Properties>
 
       <Layout>

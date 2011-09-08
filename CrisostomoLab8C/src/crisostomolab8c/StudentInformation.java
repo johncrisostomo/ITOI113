@@ -10,6 +10,7 @@
  */
 
 package crisostomolab8c;
+import javax.swing.*;
 
 /**
  *
@@ -227,6 +228,8 @@ public class StudentInformation extends javax.swing.JFrame {
 
     private void btnSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubActionPerformed
         String gender, course;
+
+        if(!txtName.getText().equals("") && (rdMale.isSelected() || rdFemale.isSelected()) && (cmbCourse.getSelectedIndex() != 0) && (cbProg.isSelected() || cbNum.isSelected() || cbEng.isSelected() || cbDes.isSelected())) {
         if(rdMale.isSelected()) gender = rdMale.getText(); else if(rdFemale.isSelected()) gender = rdFemale.getText();
         else gender = "Not specified";
         if(cmbCourse.getSelectedIndex() == 0) course = "Not specified"; else course = (String) cmbCourse.getSelectedItem();
@@ -239,6 +242,10 @@ public class StudentInformation extends javax.swing.JFrame {
         if(cbEng.isSelected()) output += "\t\t" + cbEng.getText() + "\n";
         if(cbDes.isSelected()) output += "\t\t" + cbDes.getText() + "\n";
         txtArea.setText(output);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Fields cannot be blank!", "Some fields are blank", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnSubActionPerformed
 
     private void btnResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResActionPerformed
